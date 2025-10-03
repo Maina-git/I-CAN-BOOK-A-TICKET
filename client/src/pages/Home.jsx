@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../api";
 
-const Tickets = () => {
+const Home = () => {
   const [tickets, setTickets] = useState([]);
   const [event, setEvent] = useState("");
   const [price, setPrice] = useState(0);
@@ -99,4 +99,4 @@ const Tickets = () => {
   );
 };
 
-export default Tickets;
+export default Home;

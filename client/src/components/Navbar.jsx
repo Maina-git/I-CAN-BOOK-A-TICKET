@@ -12,23 +12,36 @@ const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("user") || "null");
 
   return (
-    <nav className="p-4 bg-blue-600 text-white flex justify-between">
-      <h1 className="font-bold text-xl">🎟 Ticket App</h1>
-      <div className="flex gap-4">
+    <nav className="w-full p-5">
+    <div className="p-4 w-[80%] mx-auto text-blue-400 flex justify-between items-center">
+      <h1 className="font-bold text-xl">OneClickTicket</h1>
+      <div className="flex gap-6">
         {user ? (
           <>
-            <span>Hi, {user.name}</span>
-            <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded">
-              Logout
-            </button>
+            <Link to="/" className="hover:underline">Tickets</Link>
+            <Link to="/addticket">Add Ticket</Link>
+            <Link to="/mytickets" className="hover:underline">My Tickets</Link>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/login" className="hover:underline">Login</Link>
+            <Link to="/register" className="hover:underline">Register</Link>
           </>
         )}
       </div>
+      <div className="flex gap-4 items-center">
+        {user ? (
+          <>
+            <span className="font-medium">Hi, {user.name}</span>
+            <button
+              onClick={handleLogout}
+              className="bg-blue-400 hover:bg-blue-400 px-3 py-1 rounded text-white">
+              Logout
+            </button>
+          </>
+        ) : null}
+      </div>
+    </div>
     </nav>
   );
 };
