@@ -3,12 +3,9 @@ import { useState } from 'react';
 import API from '../../api';
 
 const AddTicket = () => {
-  
-  const [tickets, setTickets] = useState([]);
   const [event, setEvent] = useState("");
   const [price, setPrice] = useState(0);
   const [available, setAvailable] = useState(true); 
- const user = JSON.parse(localStorage.getItem("user") || "null");
 
   const addTicket = async () => {
     try {
@@ -22,20 +19,17 @@ const AddTicket = () => {
     }
   };
 
-
-
   return (
     <div>
-    
- <div className="border p-4 mb-6">
-        <h3 className="font-bold mb-2">Add New Ticket</h3>
+    <div className="w-[90%] md:w-[80%] mx-auto p-4 mb-6 shadow-lg rounded-lg">
+        <h3 className="font-bold mb-2 text-blue-400 text-2xl">Add New Ticket</h3>
         <input
-          className="border p-2 m-2"
+          className="border rounded-lg text-blue-400 border-blue-400 p-2 m-2"
           placeholder="Event Name"
           value={event}
           onChange={(e) => setEvent(e.target.value)}/>
         <input
-          className="border p-2 m-2"
+          className="p-2 m-2 border rounded-lg text-blue-400 border-blue-400 p-2 m-2 "
           type="number"
           placeholder="Price"
           value={price}
@@ -45,16 +39,15 @@ const AddTicket = () => {
             type="checkbox"
             checked={available}
             onChange={(e) => setAvailable(e.target.checked)}
-            className="mr-2"/>
+            className="mr-2 bg-blue-400"/>
           Available
         </label>
         <button
           onClick={addTicket}
-          className="bg-green-500 text-white px-4 py-2">
+          className="bg-blue-400 text-white px-4 py-2 rounded-lg">
           Add Ticket
         </button>
       </div>
-
     </div>
   );
 }

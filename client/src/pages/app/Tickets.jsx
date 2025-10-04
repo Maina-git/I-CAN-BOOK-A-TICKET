@@ -30,18 +30,19 @@ const fetchTickets = async () => {
 
   return (
     <div>
+    <div className="w-[90%] md:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
      {tickets.map((t) => (
         <div
           key={t._id}
-          className="border p-4 mb-2 flex justify-between items-center">
+          className="shadow-lg h-[200px] p-4 mb-2 flex justify-between items-center rounded-lg">
           <div>
-            <p className="font-bold">{t.event}</p>
+            <p className="font-bold text-blue-400 text-2xl">{t.event}</p>
             <p>Price: ${t.price}</p>
-            <p>
+            <p className="font-bold text-xl text-gray-500">
               Status:{" "}
               <span
                 className={`${
-                  t.available ? "text-green-600" : "text-red-600"
+                  t.available ? "text-green-400" : "text-red-400"
                 } font-semibold`}>
                 {t.available ? "Available" : "Sold Out"}
               </span>
@@ -55,6 +56,7 @@ const fetchTickets = async () => {
           </button>
         </div>
       ))}
+    </div>
     </div>
   );
 }
