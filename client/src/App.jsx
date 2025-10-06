@@ -7,7 +7,7 @@ import AddTicket from "./pages/app/AddTicket";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Tickets from "./pages/app/Tickets";
-import MyTickets from "./pages/app/MyTickets";
+//import MyTickets from "./pages/app/MyTickets";
 
 const App = () => {
   const token = localStorage.getItem("token");
@@ -21,25 +21,14 @@ const App = () => {
     <BrowserRouter>
       <Layout auth={auth}>
         <Routes>
-          {/* --- Public Routes --- */}
           <Route path="/login" element={<Login toAuth={toAuth} />} />
           <Route path="/register" element={<Register />} />
-         
-          {/* --- Protected Routes --- */}
           <Route
             path="/"
-            element={auth ? <Tickets /> : <Navigate to="/login" />}
-          />
-          <Route
-            path="/mytickets"
-            element={auth ? <MyTickets /> : <Navigate to="/login" />}
-          />
+            element={auth ? <Tickets /> : <Navigate to="/login" />}/>
           <Route
           path="addticket"
-          element={auth ? <AddTicket/> : <Navigate to="/login"/> }
-          />
-
-          {/* --- Catch-all route --- */}
+          element={auth ? <AddTicket/> : <Navigate to="/login"/> }/>
           <Route path="*" element={<Navigate to={auth ? "/" : "/login"} />} />
         </Routes>
       </Layout>

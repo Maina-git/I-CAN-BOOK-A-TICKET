@@ -20,7 +20,6 @@ const Navbar = () => {
           <>
             <Link to="/" className="hover:underline">Tickets</Link>
             <Link to="/addticket">Add Ticket</Link>
-            <Link to="/mytickets" className="hover:underline">My Tickets</Link>
           </>
         ) : (
           <>

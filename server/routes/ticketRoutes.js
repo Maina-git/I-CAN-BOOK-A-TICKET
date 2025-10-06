@@ -10,3 +10,8 @@ router.post("/book", authMiddleware, bookTicket); // book ticket
 router.get("/my", authMiddleware, getUserBookings); // my bookings
 
 export default router;
+
+
+
+
+
